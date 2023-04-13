@@ -1,70 +1,160 @@
-# Database Challenges
-This repository holds the database challenges for the 2023 Bravo cohort.
+➜  favorite_movies git:(main) ✗ rails generate model Movie title:string category:string
+      invoke  active_record
+      create    db/migrate/20230413221027_create_movies.rb
+      create    app/models/movie.rb
 
 
-### Process Notes
-- Anything wrapped in `< >` is an indication that this will be named uniquely, the `< >` are NOT actually added to the command
-- `$` is an indication of a command line prompt, the `$` is not included
-- Anything in `( )` is informational and not included in the command
-- The term local/locally means on your personal computer
-- The term remote means on GitHub
+3.2.0 :001 > Movie.all
+  Movie Load (27.7ms)  SELECT "movies".* FROM "movies"
+ =>                                                          
+[#<Movie:0x000000010dcd7dd8                                  
+  id: 1,                                                     
+  title: "Black Panther",                                    
+  category: "Action",                                        
+  created_at: Thu, 13 Apr 2023 22:19:54.772632000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:19:54.772632000 UTC +00:00>,
+ #<Movie:0x000000010e0fda20                                  
+  id: 2,                                                     
+  title: "Get Out",                                          
+  category: "Thriller",                                      
+  created_at: Thu, 13 Apr 2023 22:20:55.721503000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:20:55.721503000 UTC +00:00>,
+ #<Movie:0x000000010e0fd980                                  
+  id: 3,
+  title: "Transformers",
+  category: "Action",
+  created_at: Thu, 13 Apr 2023 22:21:13.881136000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:21:13.881136000 UTC +00:00>,
+ #<Movie:0x000000010e0fd8e0
+  id: 4,
+  title: "Anabelle",
+  category: "Scary",
+  created_at: Thu, 13 Apr 2023 22:21:47.865383000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:21:47.865383000 UTC +00:00>,
+ #<Movie:0x000000010e0fd840
+  id: 5,
+  title: "Scar Face",
+  category: "Crime Film",
+  created_at: Thu, 13 Apr 2023 22:23:40.858488000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:23:40.858488000 UTC +00:00>] 
 
 
-### Naming Conventions
-Branches and file names should be in all lowercase letters:
-- Branch name: `topic-initials1-initials2` (ex. state-ts-ww)
-- Project name: `topic-student1-student2` (ex. state-trish-will)
+Movie.all
+  Movie Load (0.9ms)  SELECT "movies".* FROM "movies"
+ =>                                                 
+[#<Movie:0x00000001121ed1e8                         
+  id: 1,
+  title: "Black Panther",
+  category: "Action",
+  created_at: Thu, 13 Apr 2023 22:19:54.772632000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:19:54.772632000 UTC +00:00,
+  movie_length: nil>,
+ #<Movie:0x0000000112521c38
+  id: 2,
+  title: "Get Out",
+  category: "Thriller",
+  created_at: Thu, 13 Apr 2023 22:20:55.721503000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:20:55.721503000 UTC +00:00,
+  movie_length: nil>,
+ #<Movie:0x0000000112521b98
+  id: 3,
+  title: "Transformers",
+  category: "Action",
+  created_at: Thu, 13 Apr 2023 22:21:13.881136000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:21:13.881136000 UTC +00:00,
+  movie_length: nil>,
+ #<Movie:0x0000000112521af8
+  id: 4,
+  title: "Anabelle",
+  category: "Scary",
+  created_at: Thu, 13 Apr 2023 22:21:47.865383000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:21:47.865383000 UTC +00:00,
+  movie_length: nil>,
+ #<Movie:0x0000000112521a58
+  id: 5,
+  title: "Scar Face",
+  category: "Crime Film",
+  created_at: Thu, 13 Apr 2023 22:23:40.858488000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:23:40.858488000 UTC +00:00,
+  movie_length: nil>] 
 
 
-### Informational Commands
-Use this informational command to tell you what files have been modified and what phase of the git process you are on:  
-- $ `git status`  
-Use this informational command to see what branch you are currently on:  
-- $ `git branch`
-
-### Cloning an Existing React App
-Use this command if this is the first time you have worked in the React app locally (aka you didn't run `yarn create react-app`):
-- $ `yarn`
-
-### Cloning a Repository
-Use this command if you don't have the repository (folder) on your local machine:   
-- $ `git clone <repo-url>` (pasted from clipboard on GitHub)
-
-
-### Updating an Existing Repository
-Use this command if you DO have the repository on your local machine but DON'T have the latest version of the code from GitHub:  
-- $ `git pull origin <branch-name>`
-
-
-### Create a Branch
-Use this command if you need to create a branch that does not exist anywhere:  
-- $ `git checkout -b <topic-initials1-initials2>` (ex. state-em-nr)
-
-
-### Moving to an Existing Local Branch
-Use this informational command to see what branches exist on your local machine:  
-- $ `git branch`
-
-Use this command to move to a branch that exist on your local machine:  
-- $ `git checkout <branch-name>`
-
-
-### Moving to an Existing GitHub Branch
-Use these commands if the repo you are working on has a branch but it is NOT on your local machine:  
-- $ `git fetch origin <branch-name>`
-- $ `git checkout <branch-name>`
-
-
-### Adding Local Code to GitHub
-Use these commands to add the code you have on your local machine to GitHub:  
-- $ `pwd` (ensure you are in the repository level)
-- $ `git status` (informational command, ensure you are on the correct branch and in the correct directory)
-- $ `git add <file-name>`
-- $ `git commit -m "message describing the work that was accomplished"`
-- $ `git push origin <branch-name>`
+3.2.0 :025 > Movie.all
+  Movie Load (0.5ms)  SELECT "movies".* FROM "movies"
+ =>                                                             
+[#<Movie:0x0000000112e38e98                                     
+  id: 1,                                                        
+  title: "Black Panther",                                       
+  category: "Action",                                           
+  created_at: Thu, 13 Apr 2023 22:19:54.772632000 UTC +00:00,   
+  updated_at: Thu, 13 Apr 2023 22:54:41.656270000 UTC +00:00,   
+  movie_length: "134 mins">,                                 
+ #<Movie:0x0000000112e38d58                                  
+  id: 2,                                                     
+  title: "Get Out",                                          
+  category: "Thriller",                                      
+  created_at: Thu, 13 Apr 2023 22:20:55.721503000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:58:02.971607000 UTC +00:00,
+  movie_length: "104 mins">,
+ #<Movie:0x0000000112e38c18
+  id: 3,
+  title: "Transformers",
+  category: "Action",
+  created_at: Thu, 13 Apr 2023 22:21:13.881136000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:59:10.288568000 UTC +00:00,
+  movie_length: "144 mins">,
+ #<Movie:0x0000000112e38ad8
+  id: 4,
+  title: "Anabelle",
+  category: "Scary",
+  created_at: Thu, 13 Apr 2023 22:21:47.865383000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 23:00:11.125127000 UTC +00:00,
+  movie_length: "98 minutes">,
+ #<Movie:0x0000000112e38998
+  id: 5,
+  title: "Scar Face",
+  category: "Crime Film",
+  created_at: Thu, 13 Apr 2023 22:23:40.858488000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 23:01:31.483019000 UTC +00:00,
+  movie_length: "170 mins">] 
 
 
-### Deleting a Branch
-Branches exist on your local and on the remote. Always delete your branch in both places.
-- Branches in GitHub can be deleted via the GUI
-- $ `git branch -d <branch-name>`
+
+3.2.0 :001 > Movie.all
+  Movie Load (0.9ms)  SELECT "movies".* FROM "movies"
+ =>                                                 
+[#<Movie:0x000000010e9d6228                         
+  id: 1,
+  title: "Black Panther",
+  genre: "Action",
+  created_at: Thu, 13 Apr 2023 22:19:54.772632000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:54:41.656270000 UTC +00:00,
+  movie_length: "134 mins">,
+ #<Movie:0x000000010ec71410
+  id: 2,
+  title: "Get Out",
+  genre: "Thriller",
+  created_at: Thu, 13 Apr 2023 22:20:55.721503000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:58:02.971607000 UTC +00:00,
+  movie_length: "104 mins">,
+ #<Movie:0x000000010ec71370
+  id: 3,
+  title: "Transformers",
+  genre: "Action",
+  created_at: Thu, 13 Apr 2023 22:21:13.881136000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 22:59:10.288568000 UTC +00:00,
+  movie_length: "144 mins">,
+ #<Movie:0x000000010ec712d0
+  id: 4,
+  title: "Anabelle",
+  genre: "Scary",
+  created_at: Thu, 13 Apr 2023 22:21:47.865383000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 23:00:11.125127000 UTC +00:00,
+  movie_length: "98 minutes">,
+ #<Movie:0x000000010ec71230
+  id: 5,
+  title: "Scar Face",
+  genre: "Crime Film",
+  created_at: Thu, 13 Apr 2023 22:23:40.858488000 UTC +00:00,
+  updated_at: Thu, 13 Apr 2023 23:01:31.483019000 UTC +00:00,
+  movie_length: "170 mins">] 
