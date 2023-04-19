@@ -1,4 +1,4 @@
-Generate a model called Person with a first_name, last_name, and phone. All fields should be strings.
+Create a model called Person with a first_name, last_name, and phone. All fields should be strings.
 
 ➜ rails generate model Person(first_name: 'string', last_name: 'string', phone: 'string')
 
